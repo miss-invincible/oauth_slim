@@ -38,4 +38,9 @@ $oauth_users->addColumn('username','string',array('limit'=>255,'null'=>false))
             ->addColumn('first_name','string',array('limit'=>255))
             ->addColumn('last_name','string',array('limit'=>255))
             ->save();
-  
+
+$oauth_scopes = $this->table('oauth_scopes');
+$oauth_scopes->addColumn('scope','text')
+              ->addColumn('is_default','boolean')
+              ->save();
+              
