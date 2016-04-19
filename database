@@ -43,4 +43,9 @@ $oauth_scopes = $this->table('oauth_scopes');
 $oauth_scopes->addColumn('scope','text')
               ->addColumn('is_default','boolean')
               ->save();
-              
+
+$oauth_jwt = $this->table('oauth_jwt',array('id'=false,'primary_key'=>array('client_id')));
+$oauth_jwt->addColumn('client_id','string',array('limit'=80,'null'=>false))
+          ->addColumn('subject','string',array('limit'=80))
+          ->addColumn('public_key','string',array('limit'=>2000))
+          ->save();
