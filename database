@@ -23,4 +23,11 @@ $oauth_authorization_codes->addColumn('authorization_code','string',array('limit
                           ->addColumn('expires','timestamp',array('null'=>false))
                           ->addColumn('scope','string',array('limit'=>2000))
                           ->save();
+
+$oauth_refresh_tokens = $this->table('oauth_refresh_tokens',array('id'=>false,array('primary_key'=>array('refresh_token'))));
+$oauth_refresh_tokens->addColumn('refresh_token','string',array('limit'=>40,'null'=>false))
+                    ->addColumn('client_id','string',array('limit'=>80,'null'=>false))
+                    ->addColumn('user_id','string',array('limit'=>255))
+                    ->addColumn('expires','timestamp',array('null'=>false))
+                    addColumn('scope','string',array('limit'=>2000))
   
