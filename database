@@ -29,5 +29,13 @@ $oauth_refresh_tokens->addColumn('refresh_token','string',array('limit'=>40,'nul
                     ->addColumn('client_id','string',array('limit'=>80,'null'=>false))
                     ->addColumn('user_id','string',array('limit'=>255))
                     ->addColumn('expires','timestamp',array('null'=>false))
-                    addColumn('scope','string',array('limit'=>2000))
+                    ->addColumn('scope','string',array('limit'=>2000))
+                    ->save();
+
+$oauth_users = $this->table('oauth_users',array('id'=>false,'primary_key'=>array(username)));
+$oauth_users->addColumn('username','string',array('limit'=>255,'null'=>false))
+            ->addColumn('password','string',array('limit'=>2000))
+            ->addColumn('first_name','string',array('limit'=>255))
+            ->addColumn('last_name','string',array('limit'=>255))
+            ->save();
   
