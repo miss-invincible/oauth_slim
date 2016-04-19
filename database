@@ -14,5 +14,13 @@ $oauth_access_tokens->addColumn('access_token','string',array('limit'=>40,'null'
                     ->addColumn('expires','timestamp',array('null'=>false))
                     ->addColumn('scope','string',array('limit'=>2000))
                     ->save();
-
+                    
+$oauth_authorization_codes = $this->table('oauth_authorization_codes',array('id'=>false,'primary_key'=>array('authorization_code')));
+$oauth_authorization_codes->addColumn('authorization_code','string',array('limit'=>40,'null'=>false))
+                          ->addColumn('client_id','string','string',array('limit'=>80,'null'=>false))
+                          ->addColumn('user_id','string',array('limit'=>255))
+                          ->addColumn('redirect_uri','string',array('limit'=>2000))
+                          ->addColumn('expires','timestamp',array('null'=>false))
+                          ->addColumn('scope','string',array('limit'=>2000))
+                          ->save();
   
